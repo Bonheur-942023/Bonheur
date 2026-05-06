@@ -1,0 +1,388 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michigan Academy - Académie de Formations Professionnelles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        :root {
+            --navy: #1a2b4b;
+            --orange: #f39200;
+            --light-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: #1e293b;
+        }
+
+        .bg-navy { background-color: var(--navy); }
+        .text-navy { color: var(--navy); }
+        .bg-orange { background-color: var(--orange); }
+        .text-orange { color: var(--orange); }
+        .border-orange { border-color: var(--orange); }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(26, 43, 75, 0.95) 0%, rgba(26, 43, 75, 0.8) 100%),
+                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroll-mt { scroll-margin-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <!-- Logo Placeholder based on the image -->
+                    <div class="w-12 h-12 bg-navy rounded-full flex items-center justify-center border-2 border-orange">
+                        <span class="text-white font-bold text-xl">MA</span>
+                    </div>
+                    <div>
+                        <h1 class="text-navy font-extrabold text-xl leading-none">MICHIGAN ACADEMY</h1>
+                        <p class="text-[10px] text-orange font-semibold tracking-widest uppercase">Formations Professionnelles</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="text-navy hover:text-orange font-medium transition-colors">Accueil</a>
+                    <a href="#formations" class="text-navy hover:text-orange font-medium transition-colors">Formations</a>
+                    <a href="#pourquoi" class="text-navy hover:text-orange font-medium transition-colors">Pourquoi nous ?</a>
+                    <a href="#contact" class="bg-orange text-white px-6 py-2 rounded-full font-bold hover:bg-orange/90 transition-all">S'inscrire</a>
+                </div>
+
+                <button class="md:hidden text-navy" id="menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 space-y-4">
+            <a href="#accueil" class="block text-navy font-medium">Accueil</a>
+            <a href="#formations" class="block text-navy font-medium">Formations</a>
+            <a href="#pourquoi" class="block text-navy font-medium">Pourquoi nous ?</a>
+            <a href="#contact" class="block bg-orange text-white text-center py-2 rounded-lg font-bold">S'inscrire</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="pt-20">
+        <div class="hero-gradient min-h-[85vh] flex items-center text-white px-4">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="inline-block bg-orange px-4 py-1 rounded-full text-sm font-bold tracking-wider animate-pulse">
+                        PLACES LIMITÉES !
+                    </span>
+                    <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                        RÉVOLUTIONNEZ VOTRE <span class="text-orange">CARRIÈRE</span> AVEC MICHIGAN ACADEMY
+                    </h2>
+                    <p class="text-lg text-gray-200 max-w-xl">
+                        Développez les compétences de demain avec nos formations innovantes et un accompagnement personnalisé par des experts du secteur.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#formations" class="bg-orange hover:bg-white hover:text-navy text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center gap-2">
+                            Voir les formations <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#contact" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-xl font-bold transition-all">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block relative">
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-orange/20 rounded-full blur-3xl"></div>
+                    <div class="relative rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800" alt="Étudiants Michigan Academy" class="w-full">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4">
+                        <div class="bg-orange/10 p-3 rounded-full">
+                            <i data-lucide="users" class="text-orange w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <p class="text-navy font-bold text-xl">+500</p>
+                            <p class="text-gray-500 text-xs uppercase font-semibold">Étudiants formés</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Info -->
+    <div class="bg-orange py-4 overflow-hidden">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <span class="text-white font-bold text-lg px-8">INSCRIPTIONS OUVERTES • PLACES LIMITÉES • RÉSERVEZ VOTRE PLACE MAINTENANT • MICHIGAN ACADEMY • CÔTE D'IVOIRE • </span>
+            <span class="text-white font-bold text-lg px-8">INSCRIPTIONS OUVERTES • PLACES LIMITÉES • RÉSERVEZ VOTRE PLACE MAINTENANT • MICHIGAN ACADEMY • CÔTE D'IVOIRE • </span>
+        </div>
+    </div>
+
+    <!-- Formations Section -->
+    <section id="formations" class="py-24 px-4 scroll-mt">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-navy text-3xl md:text-5xl font-extrabold">NOS FORMATIONS <span class="text-orange">INNOVANTES</span></h2>
+                <div class="h-1.5 w-24 bg-orange mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Digital Marketing -->
+                <div class="bg-white p-8 rounded-3xl border-b-4 border-orange card-hover shadow-sm">
+                    <div class="w-14 h-14 bg-navy text-white rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="layout"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">DIGITAL MARKETING & RÉSEAUX SOCIAUX</h3>
+                    <p class="text-gray-600 mb-6 italic">Devenez Expert en Stratégie</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange"></i> SEO & Publicité</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange"></i> Community Management</li>
+                    </ul>
+                    <button class="text-orange font-bold flex items-center gap-2 hover:gap-4 transition-all">En savoir plus <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                </div>
+
+                <!-- Entrepreneurship -->
+                <div class="bg-white p-8 rounded-3xl border-b-4 border-orange card-hover shadow-sm">
+                    <div class="w-14 h-14 bg-navy text-white rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">ENTREPRENEURIAT & GESTION D'ENTREPRISE</h3>
+                    <p class="text-gray-600 mb-6 italic">Lancez & Développez votre Projet</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange"></i> Business Plan</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange"></i> Management d'équipe</li>
+                    </ul>
+                    <button class="text-orange font-bold flex items-center gap-2 hover:gap-4 transition-all">En savoir plus <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                </div>
+
+                <!-- IT -->
+                <div class="bg-white p-8 rounded-3xl border-b-4 border-orange card-hover shadow-sm">
+                    <div class="w-14 h-14 bg-navy text-white rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">INFORMATIQUE & DÉVELOPPEMENT WEB</h3>
+                    <p class="text-gray-600 mb-6 italic">Maîtrisez les Outils du Futur</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange"></i> Coding & Design</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange"></i> Maintenance Réseau</li>
+                    </ul>
+                    <button class="text-orange font-bold flex items-center gap-2 hover:gap-4 transition-all">En savoir plus <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                </div>
+
+                <!-- Leadership -->
+                <div class="bg-white p-8 rounded-3xl border-b-4 border-orange card-hover shadow-sm">
+                    <div class="w-14 h-14 bg-navy text-white rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="user-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">LEADER & DÉVELOPPEMENT PERSONNEL</h3>
+                    <p class="text-gray-600 mb-6 italic">Boostez votre Potentiel</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange"></i> Prise de parole</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange"></i> Intelligence Émotionnelle</li>
+                    </ul>
+                    <button class="text-orange font-bold flex items-center gap-2 hover:gap-4 transition-all">En savoir plus <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="pourquoi" class="py-24 bg-navy text-white px-4 scroll-mt relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/3 h-full bg-orange/5 rounded-l-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h2 class="text-4xl font-extrabold">POURQUOI <span class="text-orange">NOUS CHOISIR</span> ?</h2>
+                <div class="grid gap-6">
+                    <div class="flex items-start gap-4 p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors">
+                        <div class="bg-orange p-3 rounded-xl"><i data-lucide="award" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1">Formateurs Experts</h4>
+                            <p class="text-gray-400">Apprenez avec des professionnels actifs qui partagent leur expérience réelle.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors">
+                        <div class="bg-orange p-3 rounded-xl"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1">Certifications Internationales</h4>
+                            <p class="text-gray-400">Obtenez des diplômes reconnus sur le marché de l'emploi mondial.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors">
+                        <div class="bg-orange p-3 rounded-xl"><i data-lucide="heart" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1">Accompagnement Personnalisé</h4>
+                            <p class="text-gray-400">Nous vous suivons étape par étape jusqu'à la réussite de votre projet.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors">
+                        <div class="bg-orange p-3 rounded-xl"><i data-lucide="globe" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1">Réseau Professionnel</h4>
+                            <p class="text-gray-400">Intégrez une communauté d'élites et accédez à des opportunités exclusives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="aspect-square bg-orange/20 rounded-full absolute -z-10 animate-pulse scale-110"></div>
+                <!-- Simulating the man in the picture with a quality placeholder -->
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Formateur Michigan Academy" class="rounded-3xl border-8 border-white/5 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="absolute top-10 -right-5 bg-orange p-4 rounded-xl shadow-lg">
+                    <p class="font-black text-2xl">98%</p>
+                    <p class="text-[10px] uppercase font-bold">Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration/Contact Section -->
+    <section id="contact" class="py-24 px-4 bg-white scroll-mt">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+            <div class="space-y-8">
+                <h2 class="text-3xl font-extrabold text-navy uppercase">Inscrivez-vous dès maintenant</h2>
+                <p class="text-gray-600">Remplissez le formulaire ci-dessous pour recevoir notre brochure complète et réserver votre session de formation gratuite avec un conseiller.</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 text-navy">
+                        <i data-lucide="phone" class="text-orange"></i>
+                        <span class="font-bold">(+225) 07 08 43 39 80</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-navy">
+                        <i data-lucide="mail" class="text-orange"></i>
+                        <span class="font-bold">contact@michiganacademy-sn.com</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-navy">
+                        <i data-lucide="map-pin" class="text-orange"></i>
+                        <span class="font-bold">Côte d'Ivoire</span>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100">
+                    <h4 class="font-bold text-navy mb-4">Suivez-nous</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-navy text-white rounded-full flex items-center justify-center hover:bg-orange transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-navy text-white rounded-full flex items-center justify-center hover:bg-orange transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-navy text-white rounded-full flex items-center justify-center hover:bg-orange transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-navy rounded-3xl p-8 md:p-12 shadow-2xl">
+                <form id="regForm" class="space-y-6">
+                    <div>
+                        <label class="block text-white/70 text-sm mb-2">Nom Complet</label>
+                        <input type="text" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-white/70 text-sm mb-2">Email</label>
+                        <input type="email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-white/70 text-sm mb-2">Formation souhaitée</label>
+                        <select class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange transition-all appearance-none">
+                            <option class="bg-navy">Digital Marketing</option>
+                            <option class="bg-navy">Entrepreneuriat</option>
+                            <option class="bg-navy">Développement Web</option>
+                            <option class="bg-navy">Leadership</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-white/70 text-sm mb-2">Message (Optionnel)</label>
+                        <textarea rows="4" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange transition-all"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-orange hover:bg-white hover:text-navy text-white font-black py-4 rounded-xl transition-all shadow-lg">
+                        ENVOYER MA DEMANDE D'INSCRIPTION
+                    </button>
+                </form>
+                <div id="success-msg" class="hidden mt-6 p-4 bg-green-500/20 text-green-300 rounded-xl text-center font-bold border border-green-500/30">
+                    Merci ! Votre demande a été envoyée avec succès.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-6">
+            <div class="flex items-center justify-center gap-3">
+                <div class="w-10 h-10 bg-navy rounded-full flex items-center justify-center border border-orange">
+                    <span class="text-white font-bold">MA</span>
+                </div>
+                <h2 class="font-extrabold text-xl tracking-tight">MICHIGAN ACADEMY</h2>
+            </div>
+            <p class="text-gray-500 text-sm">© 2024 Michigan Academy. Tous droits réservés. L'excellence au service de votre carrière.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth Scroll for links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Submission logic
+        const regForm = document.getElementById('regForm');
+        const successMsg = document.getElementById('success-msg');
+
+        regForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            regForm.classList.add('opacity-50', 'pointer-events-none');
+            
+            // Simulating API call
+            setTimeout(() => {
+                regForm.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+            }, 1000);
+        });
+
+        // Simple Marquee Animation
+        const marqueeStyles = document.createElement('style');
+        marqueeStyles.innerHTML = `
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+                display: inline-flex;
+                animation: marquee 20s linear infinite;
+            }
+        `;
+        document.head.appendChild(marqueeStyles);
+    </script>
+</body>
+</html>
+
+```
